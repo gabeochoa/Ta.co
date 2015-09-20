@@ -10,7 +10,6 @@ yelp_api = yelp.Api(consumer_key=MY_CONSUMER_KEY,
                     access_token_key=MY_ACCESS_TOKEN,
                     access_token_secret=MY_ACCESS_SECRET)
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
