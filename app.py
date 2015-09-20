@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, session, request, render_template
 import yelp
-import keys
+from keys import MY_CONSUMER_KEY, MY_CONSUMER_SECRET, MY_ACCESS_TOKEN, MY_ACCESS_SECRET
 
 app = Flask(__name__)
 app.debug = True
