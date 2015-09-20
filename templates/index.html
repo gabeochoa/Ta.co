@@ -13,22 +13,33 @@
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
-div class="row">
+
+	<div class="row">
     <form class="col s12">
-      
       <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+       <div class="input-field col s6">
+          <input id="zip_code" type="text" class="validate" length="5">
+          <label for="zip_code">Zip Code</label>
         </div>
       </div>
+      
     </form>
   </div>
-	  
+
 	  
 	  
 	  
         
-      
+      <script>
+	  $('form').submit(function(){
+		var zip = $('#zip_code').val();
+		console.log("zip code is : " + zip);
+		var currentLocation = window.location;
+		console.log("site" + currentLocation);
+		window.location.href = window.location + 'map/' + zip;
+		return false;
+		});
+		
+	  </script
     </body>
 </html>
