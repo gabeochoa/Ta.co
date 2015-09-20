@@ -1,31 +1,33 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+		<meta charset="utf-8" />
         {% include 'header.html' %}
         <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/splash.css') }}" />
-        <title> FIND TACOS </title>
-      
-    </head>
-    <body>
+        <title> Find Tacos Near You </title>
+     </head>
+    
+	<body>
         <p>Hello Ta.co</p>
 
-     <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-<div class="row">
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+div class="row">
     <form class="col s12">
+      
       <div class="row">
-        <div class="input-field col s6">
-          <input id="zip_code" type="text" class="validate">
-          <label for="zip_code">ZipCode</label>
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
         </div>
-        
-
       </div>
-
     </form>
   </div>
+	  
+	  
+	  
+	  
         
       
     </body>
