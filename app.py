@@ -23,7 +23,7 @@ def map_place(place=None):
     return render_template('map.html', place=place, output=output)
 
 def get_food(place):
-    search_results = yelp_api.Search(term="my search term", location="my location") # location and search term are required
+    search_results = yelp_api.Search(term="tacos", location=place) # location and search term are required
     places = []
     for business in search_results.businesses:
         print business.name
