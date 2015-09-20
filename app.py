@@ -21,10 +21,10 @@ def index():
 
 @app.route('/map/<place>')
 def map_place(place=None):
-
     output = []
     if(place != None):
-        output = get_food(place)
+        if(len(place) == 5):
+           output = get_food(place)
     return render_template('map.html', place=place, output=output)
 
 def getKey(item):
