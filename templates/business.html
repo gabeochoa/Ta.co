@@ -6,9 +6,12 @@
 
 <tr>
 <th> {{ bus.name }} </th>
+<th> {{ bus.display_phone }} </th>
 <th> rating: {{ bus.rating }} </th>
 <th> 
-    {{ ' '.join(loc.address) }}
-    {{ loc.city }} </th>
+    {{ ', '.join(loc.address) }}
+    {{ loc.city }}, 
+    {{loc.state_code}}
+</th>
 
 </tr>

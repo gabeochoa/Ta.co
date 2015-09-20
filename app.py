@@ -31,7 +31,7 @@ def get_food(place):
     for business in search_results.businesses:
         #dump(business)
         places.append((business, business.location))
-        dump(business.location)
+        dump(business)
 
     places = sorted(places, key=getKey, reverse=True)
     return places
