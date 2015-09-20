@@ -15,7 +15,8 @@ yelp_api = yelp.Api(consumer_key=MY_CONSUMER_KEY,
 gmaps = googlemaps.Client(key=GOOGLE_CODE)
 @app.route('/')
 def index():
-    return render_template('new_index.html', APIKEY=GOOGLE_CODE, PLACE="Seattle, WA")
+    return render_template('index.html', APIKEY=GOOGLE_CODE, PLACE="Seattle, WA")
+    #return render_template('new_index.html', APIKEY=GOOGLE_CODE, PLACE="Seattle, WA")
     #return redirect(url_for('login'))
 
 @app.route('/map/<place>')
