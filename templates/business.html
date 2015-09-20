@@ -12,6 +12,31 @@
     </head>
 	
 	<body>
+	<div class="row">
+        <div class="col s12 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{ bus.name }} </span>
+              <p>{{ bus.display_phone }}</p>
+			  <p> rating: {{ bus.rating }} </p>
+			  <p> {{ ', '.join(loc.address) }}
+					{{ loc.city }}, 
+					{{loc.state_code}} </p>			  
+            </div>
+            <div class="card-action">
+              <a href="http://maps.google.com?parameter=" + {{ ', '.join(loc.address) }}
+					{{ loc.city }}, 
+					{{loc.state_code}} >This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+		
+	
+	
+	
+	
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<tr>
