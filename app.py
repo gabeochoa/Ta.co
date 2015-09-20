@@ -22,13 +22,23 @@ def map_place(place=None):
         output = get_food(place)
     return render_template('map.html', place=place, output=output)
 
+def getKey(item):
+    return item[0].rating
+
 def get_food(place):
     search_results = yelp_api.Search(term="tacos", location=place) # location and search term are required
     places = []
     for business in search_results.businesses:
-        print business.name
-        places.append(business.name)
+        #dump(business)
+        places.append((business, business.location))
+        dump(business.location)
+
+    places = sorted(places, key=getKey, reverse=True)
     return places
+
+def dump(obj):
+  for attr in dir(obj):
+    print "obj.%s = %s" % (attr, getattr(obj, attr))
 
 if __name__ == '__main__':
     app.run()
