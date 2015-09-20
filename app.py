@@ -1,22 +1,26 @@
 from flask import Flask, redirect, url_for, session, request, render_template
 import yelp
-from keys import MY_CONSUMER_KEY, MY_CONSUMER_SECRET, MY_ACCESS_TOKEN, MY_ACCESS_SECRET
+from keys import MY_CONSUMER_KEY, MY_CONSUMER_SECRET, MY_ACCESS_TOKEN, MY_ACCESS_SECRET, GOOGLE_CODE
+import googlemaps
+
 
 app = Flask(__name__)
 app.debug = True
+
 
 yelp_api = yelp.Api(consumer_key=MY_CONSUMER_KEY,
                     consumer_secret=MY_CONSUMER_SECRET,
                     access_token_key=MY_ACCESS_TOKEN,
                     access_token_secret=MY_ACCESS_SECRET)
-
+gmaps = googlemaps.Client(key=GOOGLE_CODE)
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('new_index.html', APIKEY=GOOGLE_CODE, PLACE="Seattle, WA")
     #return redirect(url_for('login'))
 
 @app.route('/map/<place>')
 def map_place(place=None):
+
     output = []
     if(place != None):
         output = get_food(place)
