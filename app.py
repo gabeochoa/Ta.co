@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, session, request, render_template
 import yelp
 from keys import MY_CONSUMER_KEY, MY_CONSUMER_SECRET, MY_ACCESS_TOKEN, MY_ACCESS_SECRET, GOOGLE_CODE
 import googlemaps
-
+import urllib
 
 app = Flask(__name__)
 app.debug = True
@@ -25,7 +25,7 @@ def map_place(place=None):
     if(place != None):
         if(len(place) == 5):
            output = get_food(place)
-    return render_template('map.html', place=place, output=output)
+    return render_template('map.html', place=place, output=output, process_map=process_map, APIKEY=GOOGLE_CODE)
 
 def getKey(item):
     return item[0].rating
@@ -36,10 +36,13 @@ def get_food(place):
     for business in search_results.businesses:
         #dump(business)
         places.append((business, business.location))
-        dump(business)
+        dump(business.location)
 
     places = sorted(places, key=getKey, reverse=True)
     return places
+
+def process_map(param):
+    return str(param['latitude']) +", "+  str(param["latitude"])
 
 def dump(obj):
   for attr in dir(obj):

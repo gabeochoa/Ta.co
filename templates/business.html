@@ -24,9 +24,13 @@
 					{{loc.state_code}} </p>			  
             </div>
             <div class="card-action">
-              <a href="http://maps.google.com?parameter=" + {{ ', '.join(loc.address) }}
-					{{ loc.city }}, 
-					{{loc.state_code}} >This is a link</a>
+              <iframe
+          width="600"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key={{APIKEY}}
+            &q={{ process_map(loc.coordinate) }}" allowfullscreen>
+            </iframe>
               <a href="#">This is a link</a>
             </div>
           </div>

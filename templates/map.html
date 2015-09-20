@@ -18,9 +18,13 @@
         <p> PLACE: {{ place }} </p>
         <table style="width:100%">
         {% for tup in output %}
+            {% with APIKEY=APIKEY %}
+            {% with process_map=process_map %}
             {% with bus=tup[0] %}
             {% with loc=tup[1] %}
                 {% include 'business.html' %}
+            {% endwith %}
+            {% endwith %}
             {% endwith %}
             {% endwith %}
         {% endfor %}
